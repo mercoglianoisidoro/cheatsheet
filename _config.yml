@@ -1,0 +1,38 @@
+# theme: jekyll-theme-architect
+# theme: jekyll-theme-minimal
+
+remote_theme: rundocs/jekyll-rtd-theme
+# fluid: true
+
+title: Isidoro 's Cheatsheet
+# description: Cloud Architect Cheatsheet by Isidoro Mercogliano.
+author: [Isidoro Mercogliano]
+lang: en
+
+copyright: false
+edit: false
+show_downloads: true
+readme_index:
+  with_frontmatter: true
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-default-layout
+  - jekyll-readme-index
+  - jekyll-github-metadata
+  - jekyll-titles-from-headings
+  - jemoji
+  - jekyll-avatar
+  - jekyll-mentions
+addons: true
+addons:
+  - github:
+    - homepage
+    - issues
+    - download
+# addons_branch: true
+
+exclude:
+  - how_to.md
+  - notes.txt
+  - send.sh
