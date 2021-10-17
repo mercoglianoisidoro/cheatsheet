@@ -8,7 +8,7 @@ sort: 1
 the ability to deliver service that can justifiably be trusted.
 The alternative definition: the ability to avoid service failures that are more frequent and severe than is acceptable
 
-## Dependability Attributes
+### Dependability Attributes
 
 
 - **Availability:**
