@@ -1,7 +1,7 @@
 ---
 sort: 3
 ---
-# AWS Elastic Kubernetes Service
+# fargate notes
 
 Here, just some notes.
 
