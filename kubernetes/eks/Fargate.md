@@ -1,5 +1,5 @@
 ---
-sort: 2
+sort: 3
 ---
 # AWS Elastic Kubernetes Service
 
@@ -29,6 +29,6 @@ The scheduler can use both and chose the right profile using affinity or taints.
 
 - no dataset of statefulset
 
-  
 
- 
+
+

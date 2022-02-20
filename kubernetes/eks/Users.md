@@ -5,7 +5,8 @@ sort: 1
 # Add User to EKS
 
 
-## Add User to che cluster:
+## Add User to che cluster
+
 Use the config map aws-auth:
 
 ```yaml
