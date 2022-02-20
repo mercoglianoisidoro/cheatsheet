@@ -29,13 +29,6 @@ data:
 
 ```
 
-## Add permission
-
-You can use predefined roles or create specific roles.
-
-
-
-
-## Schema
+## Add User to service accounts
 
 ![Schema](./images/userandpermissions.jpg)

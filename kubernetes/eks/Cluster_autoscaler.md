@@ -3,9 +3,12 @@ sort: 1
 ---
 # Cluster Autoscaler
 
+a rapid how-to schema to install and configureautoscaler on AWS / EKS
 ## AWS configuration schema
 
 ![Cluster Autoscaler](./images/clusterautoscaler.jpg)
+
+## Review od some detailsfrom the previous schema
 
 **Prerequisites**
 
@@ -66,4 +69,4 @@ sort: 1
 
 ## Kubernetes Manifest
 
-The ARN role can now be used in the Service Account for the autoscaler.
+The ARN role can now be used in the Service Account for the autoscaler (that need to be installed in the cluster).
