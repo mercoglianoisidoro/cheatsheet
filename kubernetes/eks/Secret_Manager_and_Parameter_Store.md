@@ -1,0 +1,30 @@
+---
+sort: 1
+---
+
+
+# Allow access to AWS Secret Manager and AWS Parameter Store
+
+more info on AWS:  [link](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_csi_driver.html)
+
+The AWS Secrets and Configuration Provider (ASCP) let to mound data from AWS Secret Manager and AWS Parameter Store info pods.
+
+## Steps:
+
+### 1 - install ASCP
+
+**Install Secrets Store CSI Driver:**
+
+*It integrates secrets stores with Kubernetes via a Container Storage Interface (CSI) volume.*
+
+```bash
+helm repo add secrets-store-csi-driver https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
+helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
+```
+
+**Install ASCP**
+```bash
+kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
+```
+
+### 2 - Set up access control
