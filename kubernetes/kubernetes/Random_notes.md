@@ -48,7 +48,7 @@ Inside a namespace you can use just the name of the service
 
 ## On nodes
 
-### Reboot node:
+### Reboot node
 
 1. kubectl cordon node: to avoid new pods scheduling
 2. kubectl drain node: to remove pods
@@ -61,18 +61,18 @@ Conf is in:
 - /etc/k../kubelet/config
 - /var/lib/kubelet/config.yaml
 
-### Remove node:
+### Remove node
 
 1. cordon
 2. drain
 3. kubectlm delete node
 
-### Add node:
+### Add node
 
 1. on master: k token create ...
 2. on node: k join ...  (edit the /etc/hosts)
 
-### Kubelet static pods:
+### Kubelet static pods
 
 kubelet starts pods from /etc/kubelet/manifest)
 

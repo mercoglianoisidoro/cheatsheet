@@ -14,15 +14,14 @@ kubectl cluster-info
 
 ```
 
-## general info:
+## general info
 - kubectl api-resources : to show api
 - kubectl api-versions :great to find information for manifests
 - kubectlm explain
 
 
+## execute a pod in iterative way
 
-## execute a pod in iterative way:
-ex:
 ```bash
 kubectl run -it  --image ubuntu bash
 ```
@@ -30,14 +29,14 @@ kubectl run -it  --image ubuntu bash
 
 
 ## get event ordered by time
-ex:
+
 ```bash
 kubectl get events --sort-by=.metadata.creationTimestamp -w
 ```
 
 
-## create manifest from kubectl:
-ex:
+## create manifest from kubectl
+
 ```bash
 kubectl create deploy .... --dry-run -o yaml
 ```
