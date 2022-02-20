@@ -8,7 +8,7 @@ a rapid how-to schema to install and configureautoscaler on AWS / EKS
 
 ![Cluster Autoscaler](./images/clusterautoscaler.jpg)
 
-## Review od some detailsfrom the previous schema
+## Review of some detail from the previous schema
 
 **Prerequisites**
 
