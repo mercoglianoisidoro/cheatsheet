@@ -1,7 +1,6 @@
 ---
-sort: 1
+sort: 3
 ---
-# AWS Elastic Kubernetes Service
 
 Here, just some notes.
 
