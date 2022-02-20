@@ -4,27 +4,6 @@ sort: 5
 
 # Random Notes
 
-**Application Platform:** viable place to run workloads.
-
-**Cluster Federation:** broadly refers to how to centrally manage all the cluster under you control
-
-- Docker Pause: it's needed by networking
-
-- every pod can communicate with other: if you need to change this behavior => network policies (this must be supported by network plugin-in)
-
-- taints: are applied to a node to mark that the node should not accept pod that doesn't tolerate the taint. Where affinities are used on pod to attract them to a specific node, taints allow a node to repel a set of pods.
-
-- 3 types of taints:
-
-  - 1. NoSchedule: doesn't schedule new pods
-    2. PreferNoSchedule: doesn't schedule nnew pods unless there is other option
-    3. NoExecute: migrate all pods away from this node
-
-- Taints and toleration have no effect on daemonset
-
-- if CNI is used => /etc/cni/net.d
-
-
 
 ## DNS
 
@@ -75,4 +54,20 @@ Conf is in:
 ### Kubelet static pods
 
 kubelet starts pods from /etc/kubelet/manifest)
+
+## Random
+
+- Application Platform: viable place to run workloads.
+- Cluster Federation: broadly refers to how to centrally manage all the cluster under you control
+- Docker Pause: it's needed by networking
+- every pod can communicate with other: if you need to change this behavior => network policies (this must be supported by network plugin-in)
+- taints: are applied to a node to mark that the node should not accept pod that doesn't tolerate the taint. Where affinities are used on pod to attract them to a specific node, taints allow a node to repel a set of pods.
+- 3 types of taints:
+  1. NoSchedule: doesn't schedule new pods
+  2. PreferNoSchedule: doesn't schedule nnew pods unless there is other option
+  3. NoExecute: migrate all pods away from this node
+
+- Taints and toleration have no effect on daemonset
+
+- if CNI is used => /etc/cni/net.d
 
