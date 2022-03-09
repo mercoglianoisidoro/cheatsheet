@@ -26,7 +26,11 @@ kubectl cluster-info
 kubectl run -it  --image ubuntu bash
 ```
 
+## set namespace
 
+```bash
+kubectl config set-context --current --namespace=NAMESPACE
+```
 
 ## get event ordered by time
 
