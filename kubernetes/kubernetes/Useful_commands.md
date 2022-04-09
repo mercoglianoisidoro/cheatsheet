@@ -25,8 +25,18 @@ kubectl cluster-info
 ```bash
 kubectl run -it  --image ubuntu bash
 ```
+```bash
+kubectl run -i --tty ubuntu --image=ubuntu -- sh
+```
 
-## set namespace
+## execute a bash in a pod
+
+```bash
+k exec  --stdin --tty  dumb-server-9d7b889f9-6z284 -- bash
+```
+
+
+## set default namespace
 
 ```bash
 kubectl config set-context --current --namespace=NAMESPACE
