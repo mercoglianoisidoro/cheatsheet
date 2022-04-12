@@ -4,6 +4,22 @@ sort: 5
 
 # Notes on Software Architecture
 
+
+## Software Architecture
+
+The architecture of a software application is its high-level structure, which consists of constituent parts and the dependencies between those parts.
+
+
+From wikipedia:
+Software architecture refers to the fundamental structures of a software system and the discipline of creating such structures and systems. Each structure comprises software elements, relations among them, and properties of both elements and relations
+
+
+From Len Bass:
+The software architecture of a computing system is the set of structures needed to reason about the system, which comprise software elements, relations among them, and properties of both.
+
+=> architecture = decomposition into parts (elements of the system) and their relationships (relations between elements).
+
+
 ## SOLID Principles
 
 - **Single-Responsibility Principle**: A class should have one and only one reason to change, meaning that a class should have only one job. (Separation of concerns.)
