@@ -16,6 +16,13 @@ is a model for enabling ubiquitous, convenient, on-demand network access to a sh
 4. Rapid elasticity
 5. Measured service
 
+## three service models:
+
+- SaaS: Software as a Service
+- PaaS: Platform as a Service
+- IaaS: Infrastructure as a Service
+
+
 
 ## four deployment models:
 
