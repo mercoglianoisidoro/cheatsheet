@@ -7,8 +7,8 @@ sort: 1
 
 ## Infrastructure vs Architecture
 
-Infrastructure: the actual set of components that make up a system
-Architecture: the design of the components and their relationships
+- **Infrastructure**: the actual set of components that make up a system
+- **Architecture**: the design of the components and their relationships
 
 
 ## Dependability
