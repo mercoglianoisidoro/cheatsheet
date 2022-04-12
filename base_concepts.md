@@ -2,7 +2,14 @@
 sort: 1
 ---
 
-# Base Concepts
+# Some Base Concepts
+
+
+## Infrastructure vs Architecture
+
+Infrastructure: the actual set of components that make up a system
+Architecture: the design of the components and their relationships
+
 
 ## Dependability
 the ability to deliver service that can justifiably be trusted.
