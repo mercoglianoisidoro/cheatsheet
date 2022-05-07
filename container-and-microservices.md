@@ -74,24 +74,6 @@ Containers can be used as building blocks for cloud architectural patterns.
 A microservice is a self-contained piece of business functionality with clear interfaces.
 From a strategy perspective, microservices architecture essentially follows the Unix philosophy of "Do one thing and do it well".
 
-### Some advantages over monolithic system
-
-- reliability
-- agility
-- simplicity
-- better scaling (each service can scale with the approach that suit it the best)
-- easy to monitor
-
-
-The introduction of formal API provide a reliable contract among microservices.
-
-### Some disadvantages
-
-- more complicate
-  - debugging
-  - communication between services
-- design and architecture can be more complex
-
 
 ## Container versus Microservices
 
