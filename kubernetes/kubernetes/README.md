@@ -8,5 +8,5 @@ Kubernetes is build on the concept of transient, decoupled objects connected tog
 
 ## Kubernetes resources
 
-- [https://kubernetes.io/](https://kubernetes.io/)
+- [kubernetes.io](https://kubernetes.io/)
 - [cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
