@@ -2,15 +2,7 @@
 sort: 2
 ---
 
-# Kubernetes Theory - General
-
-
-
-## Kubernetes
-Kubernetes is build on the concept of transient, decoupled objects connected together.
-
-
-
+# Kubernetes Theory - Labels and Annotations
 
 
 ## Labels
@@ -96,20 +88,17 @@ ver: 1
 ## Annotation
 
 Same format as label keys, but with less restrictions on the keys (no validation exists),
-
-they provide a way to sore metadata related to tools and libraries (they are not identifying information).
+they provide a way to store metadata related to tools and libraries (they are not identifying information).
 
 However, because they are often used to communicate information between tools, the namespace part of the key is more important.
 
 Here some common usages:
-
 - keep track of updates and rollouts
 - communicate specialized scheduling policies
 - prototype alpha functionality in Kubernetes
 
 
-
-They are defined in the metadata section:
+They are defined in the metadata section, here un example:
 
 ```yaml
 ...
@@ -118,4 +107,3 @@ metadata:
     doamin.com/key: "val"
 ...
 ```
-
