@@ -2,7 +2,7 @@
 sort: 2
 ---
 
-# Kubernetes Theory - Labels and Annotations
+# Labels and Annotations
 
 
 ## Labels

@@ -2,7 +2,7 @@
 sort: 6
 ---
 
-# Kubernetes Theory - Scaling
+# Scaling
 
 ## Horizontal Pod Autoscaling (HPA)
 To manage horizontal scaling.
