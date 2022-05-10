@@ -63,7 +63,7 @@ Selector operators:
 
 
 
-Two forms for defining selectors:
+Two forms for defining selectors (historical reasons):
 
 - Compact YAML syntax:
 
@@ -87,7 +87,7 @@ ver: 1
 
 ## Annotation
 
-Same format as label keys, but with less restrictions on the keys (no validation exists),
+Same format as label keys, but with less restrictions on the keys (anyway, no validation exists),
 they provide a way to store metadata related to tools and libraries (they are not identifying information).
 
 However, because they are often used to communicate information between tools, the namespace part of the key is more important.
@@ -107,3 +107,5 @@ metadata:
     doamin.com/key: "val"
 ...
 ```
+
+

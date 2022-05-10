@@ -2,7 +2,9 @@
 sort: 4
 ---
 
-# Theory - Compute
+# Compute
+
+
 
 
 ## An interesting point of view
@@ -15,7 +17,7 @@ sort: 4
 | ReplicaSet | represent a single, scalable microservice (Pods homogeneous) | acts as a cluster-wide Pod manager                       |
 | Deployment | represent deployed applications in a way that transcends any particular version (manage the release of new versions) | acts as a cluster-wide Replicaset manager                |
 | Job        | a single run Pod                                             | acts as a cluster-wide Pod manager for one-shot pod runs |
-
+| DaemonSets | single Pod on every node                                     | acts as a cluster-wide Pod manager for one pod per host  |
 
 
 
@@ -25,7 +27,7 @@ sort: 4
 
 The smallest deployable artifact in a Kubernetes cluster: a group of one or more containers (shared storage, network resources, and containers specification)
 
-```bash
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -40,21 +42,42 @@ spec:
 
 
 
-Port-forwarding
+Port-forwarding:
 
-```
+```bash
 kubectl port-forward POD_NAME 8080:8080
 ```
 
-Commands in Your Container:
-```
+
+
+Execute sh on a container:
+
+```bash
 kubectl exec -it POD_NAME sh
 ```
 
-## Health Checks
+
+
+### Health Checks
+
 ensures that the main process running, otherwise Kubernetes restarts it.
 
+**Different goals of probe:**
+
+- liveness (livenessProbe)
+- readiness (readinessProbe)
+- startup (startupProbe)
+
+**Different type of probe:**
+
+- HTTP checks
+- tcpSocket
+- exec
+
+**Liveness example:**
+
 Liveness health checks run application-specific logic to verify that the application is not just still running, but is functioning properly.
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -79,12 +102,20 @@ spec:
 
 ```
 
+
+
 Three options for the restart policy:
+
 - Always (the default)
 - OnFailure (restart only on liveness failure or nonzero process exit code)
 - Never
 
-## Resource Requests
+more at: [https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+
+
+
+### Resource Requests
+
 - Resource requests: minimum amount of a resource required to run the application
 - Resource limits: maximum amount of a resource that an application can consume
 
@@ -112,7 +143,10 @@ spec:
 
 ```
 
-## Persistent Data
+
+
+### Persistent Data
+
 hostPath:
 ```yaml
 apiVersion: v1
@@ -137,7 +171,10 @@ spec:
 
 ```
 
+
+
 ## ReplicaSets
+
 acts as a cluster-wide Pod manager.
 
 With it we define a specification for the Pods and a desired number of replicas.
@@ -169,14 +206,17 @@ spec:
           image: "image address"
 ```
 
-### Annotation:
+
+
+### Annotation
+
 Automatic annotation are set ad pod level for pods managed by ReplicaSets (kubernetes.io/created-by)
 
 
 
 ## Deployments
 
-manage the release of new versions.
+Manage the release of new versions.
 Deployments represent deployed applications in a way that transcends any particular version.
 
 Deployments manage ReplicaSets: this relationship is defined by labels and a label selector.
@@ -184,7 +224,7 @@ Deployments manage ReplicaSets: this relationship is defined by labels and a lab
 Deployments:
 - let to easily move from versions ("rollout" process can be precisely controlled, it also uses health checks and stops the deployment in case of problem)
 
-### Example
+Example:
 
 ```yaml
 apiVersion: apps/v1
@@ -239,6 +279,8 @@ spec:
 Updates the ReplicaSet and terminates all pods: they will be recreated.
 It results in **downtime**.
 
+
+
 #### RollingUpdate Strategy
 Let to roll out a new version while the previous is still receiving traffic, **without any downtime**.
 
@@ -252,10 +294,14 @@ Two parameter let to configure this strategy:
 - maxSurge : how many extra pods can be created to achieve a rollout (absolute or percentage). This let to have always, at least, the 100% of pods receiving traffic.
 
 
+
 ### Observations
+
 - Recreate strategy = RollingUpdate strategy with maxUnavailable set to 100%
 - maxSurge = 100% is equivalent to a blue/green deployments
 - deployment controller get the Pod’s status thanks to  readiness checks, that are parts of the  health probes: so it's important to specify them.
+
+
 
 ### More control on the rollout process
 
@@ -282,12 +328,6 @@ To get the status of a deployment: see the status.conditions =Progressing |False
 
 
 
-## Divers
-The central concept behind a reconciliation loop is the notion of desired state versus observed or current state.
-
-
-
-
 ## Jobs
 
 
@@ -309,6 +349,8 @@ The Job object is responsible for creating and managing Pods. The Job object coo
 
 highlights job patterns based on the combination of `completions` and `parallelism` for a job configuration.
 
+from 'Kubernetes: Up and Running, 2nd Edition', By Brendan Burns, Joe Beda and Kelsey Hightower:
+
 | Type                       | Use case                                               | Behavior                                                     | completions | parallelism |
 | :------------------------- | :----------------------------------------------------- | :----------------------------------------------------------- | :---------- | :---------- |
 | One shot                   | Database migrations                                    | A single Pod running once until successful termination       | 1           | 1           |
@@ -316,6 +358,8 @@ highlights job patterns based on the combination of `completions` and `paralleli
 | Work queue: parallel jobs  | Multiple Pods processing from a centralized work queue | One or more Pods running once until successful termination   | 1           | 2+          |
 
 
+
+Example:
 
 ```yaml
 apiVersion: batch/v1
@@ -338,4 +382,36 @@ spec:
 
 ## CronJobs
 
-on going
+Let to schedule Jobs
+
+Example:
+
+```yaml
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: example-isidoro
+spec:
+  schedule: "0 22 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cronjobcontainername
+            image: image
+          restartPolicy: OnFailure
+```
+
+
+
+## DaemonSets
+
+Let to deploy a single Pod on every node of the cluster.
+
+Using labels you can target specific nodes. You can use nodeSelector select nodes.
+
+Usage example: to act directly on hosts (for example install same sw on every host)
+
+DaemonSets can be rolled out using the same `RollingUpdate` strategy used by deployment (kubectl rollout status daemonSets NAME)
+
