@@ -15,11 +15,19 @@ The containers:
 
 
 ## Goals
-The following patterns have different goals. Here a summary
+The following patterns have different goals. Here a summary:
 
 | name of the pattern  | main/direct goal                                                | benefits                               |
 | -------------------- | --------------------------------------------------------------- | -------------------------------------- |
 | Replicated services  | Increase the number of request per second the system can manage | reliability, redundancy, and scaling   |
 | Sharded Services     | Increase the amount of data the system can manage               | scale in response to the data size     |
 | Scatter/Gather       | Reduce the response time of the system                          | reduce response time of the system     |
+
+# Scalability
+
+The book, The Art of Scalability, describes a useful model based on three dimensions:
+
+![cube model](./images/cubescaling.jpg)
+
+image from: https://microservices.io/articles/scalecube.html
 
