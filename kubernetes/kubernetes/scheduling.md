@@ -2,7 +2,7 @@
 sort: 7
 ---
 
-# Kubernetes Theory - Scheduling
+# Scheduling
 
 
 ## Kubernetes scheduler (kube-scheduler)
@@ -19,7 +19,7 @@ You can inspect the logs for the kube-scheduler pod using the kubectl logs comma
 
 Kube-scheduler queries the Kubernetes API Server (kube-apiserver) at a regular interval in order to list the pods that have not been scheduled.
 
-Once that kind of pods are found, the scheduling process (elect a worker node) is composed by 2 phases: 
+Once that kind of pods are found, the scheduling process (elect a worker node) is composed by 2 phases:
 
 1. **Filtering**: determines the nodes that are capable of running a given pod
 2. **Scoring**: assigns scores for each node based on a set of scheduling policies: the pod is then assigned by the scheduler to the node with the highest score
@@ -72,7 +72,7 @@ It improves the previous: it provides a richer approach (prefer or avoid).
 
 The property is identified by: **pod.spec.affinity.nodeAffinity**
 
-It's possible to scheduling using:
+xxxxxxxxxx kubectl replace --save-config -f MANIFEST.yaml``` -->​bash
 
 -  **pods affinity** (**podAffinity**) (hard rule)
 
@@ -80,12 +80,12 @@ It's possible to scheduling using:
 
   - anti-affinity (podAffinity) (repel pods): `requiredDuringSchedulingIgnoredDuringExecution`
 
-    
+
 
 - **soft affinity**: preferred (soft rule)
 
   - affinity
-  - anti-affinity: `preferredDuringSchedulingIgnoredDuringExecution` 
+  - anti-affinity: `preferredDuringSchedulingIgnoredDuringExecution`
 
 
 
@@ -139,7 +139,7 @@ spec:
 
 ### topology domain
 
-The topologyKey allows a general grouping of Pod deployments. Affinity (or the inverse anti-affinity) will try to run on nodes with the declared topology key and running Pods with a particular label. 
+The topologyKey allows a general grouping of Pod deployments. Affinity (or the inverse anti-affinity) will try to run on nodes with the declared topology key and running Pods with a particular label.
 
 from [https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 

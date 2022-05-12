@@ -171,6 +171,12 @@ spec:
 
 ```
 
+### Singleton
+
+When you need a single pod, remember that it's better to use a manager object for the pod, and that's for reliability reasons: a pod is not resilient and, for example, if the node hosting the pod goes down, the pod will not rescheduled.
+
+So, if you need just one pod, you could use a ReplicaSet with replicas = 1
+
 
 
 ## ReplicaSets
@@ -186,7 +192,9 @@ ReplicaSets create and manage Pods, but they do not own the Pods they create (lo
 ReplicaSets use labels to identify the set of Pods they should be manage. => ReplicaSets can "adopt" pods, or pods can be quarantined
 
 
-### Minimal example:
+
+
+### Minimal example
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -210,7 +218,7 @@ spec:
 
 ### Annotation
 
-Automatic annotation are set ad pod level for pods managed by ReplicaSets (kubernetes.io/created-by)
+Automatic annotation are set at pod level for pods managed by ReplicaSets (kubernetes.io/created-by)
 
 
 
@@ -250,7 +258,10 @@ spec:
         - containerPort: 80
 ```
 
+
+
 ### Strategy
+
 The strategy object prescribes how rollout new versions.
 The 2 strategies supported by deployments are: Recreate and RollingUpdate.
 

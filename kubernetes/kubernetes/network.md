@@ -2,7 +2,7 @@
 sort: 5
 ---
 
-# Kubernetes Theory - Networks
+# Network
 
 
 ## Services
@@ -12,6 +12,85 @@ With services you can reach any node in the cluster.
 Cluster IPs are stable virtual IPs that load-balance traffic across all of the endpoints in a service. Behind the scene, this is managed by kube-proxy.
 
 You can use selector-less services to manually assigned **IPs outside** the cluster.
+
+### Example
+
+```yaml
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: servicename
+spec:
+  ports:
+  - port: <externalport>
+    protocol: TCP
+    targetPort: <internalport>
+  selector:
+    app: <selector-for-pods>
+  type: LoadBalancer|ClusterIP|NodePort|ExternalName
+
+```
+
+Note: selector-for-pods need to link the service with pods.
+
+### Types
+
+- ClusterIP: service is exposed on an cluster internal IP
+- NodePort: service is exposed on a  port on each node
+- LoadBalancer: use the load balancer provided by the cloud provider
+- ExternalName: return a CNAME
+
+### External Services
+
+#### Point to external DNS
+
+the following service, of type ExternalName, let to create a service (so an IP in the cluster is created) populated with an CNAME record (instead of a A record as for the other types) that point to the external name spacified.
+
+```yam
+kind: Service
+apiVersion: v1
+metadata:
+  name: external-service
+spec:
+  type: ExternalName
+  externalName: address-external-service.com
+```
+
+Such a strategy let to create a service to map a internal/external resource that can change to a be external/internal without changing the other resource using it.
+
+#### Point to external IP
+
+In the case you have only a IP for an external service, you need a A record:
+
+1. create a service without selector and without the external name: kubernetes will allocate a virtual IP and an A record, but no endpoint will be populated.
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: external-ip-service
+
+```
+2. create manually the endpoint
+
+```yaml
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: external-ip-service
+subsets:
+  - addresses:
+    - ip: 192.168.0.180
+    ports:
+    - port: 3306
+```
+
+The addresses can be multiple (load balancing)
+
+#### Note
+
+external services don't use health checks
 
 
 
@@ -26,7 +105,7 @@ Ingresses operate at Layer 7 of the OSI model: they let to implement other featu
 ## Ingress
 Ingress is a Kubernetes-native way to implement the “virtual hosting” pattern.
 
-The ingresses are merged in a unique configuration managed by the ingress controller but there is no “standard” Ingress controller built into Kubernetes: a controller must be installed from one of many optional implementations. 
+The ingresses are merged in a unique configuration managed by the ingress controller but there is no “standard” Ingress controller built into Kubernetes: a controller must be installed from one of many optional implementations.
 
 if you specify duplicate or conflicting configurations, the behavior is undefined.
 
@@ -159,7 +238,7 @@ The annotation `kubernetes.io/ingress.class` is used to specify the ingress cont
 
 Fallback for requests not matching the specified rules.
 
-Convention not universally supported. 
+Convention not universally supported.
 
 ### Ingress Controllers
 
