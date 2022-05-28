@@ -42,9 +42,7 @@ Note: selector-for-pods need to link the service with pods.
 - LoadBalancer: use the load balancer provided by the cloud provider
 - ExternalName: return a CNAME
 
-### External Services
-
-#### Point to external DNS
+### External DNS
 
 the following service, of type ExternalName, let to create a service (so an IP in the cluster is created) populated with an CNAME record (instead of a A record as for the other types) that point to the external name spacified.
 
@@ -60,7 +58,29 @@ spec:
 
 Such a strategy let to create a service to map a internal/external resource that can change to a be external/internal without changing the other resource using it.
 
-#### Point to external IP
+
+
+### Headless Services
+
+you don't need load-balancing and a single Service IP => "headless" Services by explicitly specifying "None" for the cluster IP (.spec.clusterIP).
+
+kube-proxy does not handle these Services, and there is no load balancing or proxying done by the platform for them.
+
+#### With selectors
+
+- endpoints are automatically created
+- DNS return A records pointing directly to the pods
+
+#### Without selectors
+
+- endpoints are not automatically created
+- DNS return:
+  - CNAME for ExternalName services
+  - a record for any endpoint
+
+
+
+#### Example: Point to external IP
 
 In the case you have only a IP for an external service, you need a A record:
 
@@ -70,6 +90,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name: external-ip-service
+spec:
+  clusterIP: None
 
 ```
 2. create manually the endpoint
@@ -88,7 +110,9 @@ subsets:
 
 The addresses can be multiple (load balancing)
 
-#### Note
+
+
+### Note on external services
 
 external services don't use health checks
 

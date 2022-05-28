@@ -28,14 +28,14 @@ kubectl explain deployment.spec.template.spec.containers.envFrom.configMapRef
 ## execute a pod in iterative way
 
 ```bash
-kubectl run -it  --image ubuntu bash
+kubectl run -it --rm --restart=Never --image ubuntu bash
 ```
 ```bash
-kubectl run -i --tty ubuntu --image=ubuntu -- sh
+kubectl run -i --tty --rm  ubuntu --image=ubuntu -- sh
 ```
 
 ```bash
-kubectl run -i -t busybox --image=busybox --restart=Never
+kubectl run -i -t --rm  busybox --image=busybox --restart=Never
 ```
 
 ```bash
