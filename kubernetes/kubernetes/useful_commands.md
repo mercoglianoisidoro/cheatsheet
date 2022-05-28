@@ -19,6 +19,11 @@ kubectl cluster-info
 - kubectl api-versions :great to find information for manifests
 - kubectlm explain
 
+## explain
+
+```bash
+kubectl explain deployment.spec.template.spec.containers.envFrom.configMapRef
+```
 
 ## execute a pod in iterative way
 
@@ -27,6 +32,14 @@ kubectl run -it  --image ubuntu bash
 ```
 ```bash
 kubectl run -i --tty ubuntu --image=ubuntu -- sh
+```
+
+```bash
+kubectl run -i -t busybox --image=busybox --restart=Never
+```
+
+```bash
+kubectl run -t -i sshd --image=mercisi/ubuntu18-supervisord:sshd --restart=Never --env="ROOT_PASSWORD=tre" --env="POD_NAMESPACE=default" --command -- bash
 ```
 
 ## execute a bash in a pod

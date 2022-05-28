@@ -10,3 +10,4 @@ Kubernetes is build on the concept of transient, decoupled objects connected tog
 
 - [kubernetes.io](https://kubernetes.io/)
 - [cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+- [the hard way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
