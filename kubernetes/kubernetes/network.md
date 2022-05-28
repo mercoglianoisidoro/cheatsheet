@@ -64,6 +64,8 @@ Such a strategy let to create a service to map a internal/external resource that
 
 you don't need load-balancing and a single Service IP => "headless" Services by explicitly specifying "None" for the cluster IP (.spec.clusterIP).
 
+“headless” === it doesn’t have a cluster virtual IP address
+
 kube-proxy does not handle these Services, and there is no load balancing or proxying done by the platform for them.
 
 #### With selectors
@@ -271,3 +273,35 @@ Convention not universally supported.
 - Emissary-Ingress: an open-source Kubernetes-native API Gateway + Layer 7 load balancer + Kubernetes Ingress built on Envoy Proxy (https://github.com/emissary-ingress/emissary)
 - Gloo Edge: a feature-rich, Kubernetes-native ingress controller, and next-generation API gateway
 - Traefik: a reverse proxy that can function as an Ingress controller
+
+
+
+
+
+## DNS
+
+The **coredns** is the default DNS service in k8s (it could be replaced): it provides DNS names for cluster IPs
+It is itself managed by k8s (a great example of Kubernetes building on Kubernetes).
+Its IP is exposed by the service kube-adm and it should match the content of the /etc/resolv.conf. Every pod can use it as DNS resolver.
+
+**Pods DNS:**
+
+*' ip separated by hyphen' . namespace . pod . cluster . local*
+
+ex: 10.1.1.1.default.pods.cluster.local
+
+**Service DNS:**
+
+*service_name.namespace.scv.cluster.local*
+
+Inside a namespace you can use just the name of the service
+
+**Services pointing to stafulset DNS**:
+
+*service_name.namespace.scv.cluster.local*
+
+and besides:
+
+*service_name-1.service_name.namespace.scv.cluster.local*
+...
+*service_name-N.service_name.namespace.scv.cluster.local*

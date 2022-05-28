@@ -4,27 +4,6 @@ sort: 6
 
 # Random Notes
 
-
-## DNS
-
-The **coredns** is the default DNS service in k8s (it could be replaced): it provides DNS names for cluster IPs
-It is itself managed by k8s (a great example of Kubernetes building on Kubernetes).
-Its IP is exposed by the service kube-adm and it should match the content of the /etc/resolv.conf. Every pod can use it as DNS resolver.
-
-
-
-**Pods DNS:**
-
-*' ip separated by hyphen' . namespace . pod . cluster . local*
-
-ex: 10.1.1.1.default.pods.cluster.local
-
-**Service DNS:**
-
-*service_name.namespace.scv.cluster.local*
-
-Inside a namespace you can use just the name of the service
-
 ## On nodes
 
 ### Reboot node
