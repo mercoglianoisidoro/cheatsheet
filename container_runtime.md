@@ -3,7 +3,7 @@ sort: 2
 
 ---
 
-# Container Runtime
+# Container Runtimes and OCI
 
 ## Definition
 
@@ -13,7 +13,7 @@ The container runtime is a piece of software that creates and manages containers
 
 ## The Open Container Initiative
 
-The Open Container Initiative (OCI) is an open source project established in 2015 to collaborate on specifications around containers. 
+The Open Container Initiative (OCI) is an open source project established in 2015 to collaborate on specifications around containers.
 
 [https://github.com/opencontainers](https://github.com/opencontainers) => [https://github.com/opencontainers/runtime-spec/blob/main/spec.md](https://github.com/opencontainers/runtime-spec/blob/main/spec.md)
 
@@ -29,7 +29,7 @@ The Open Container Initiative (OCI) is an open source project established in 201
 
 **It determines how to instantiate and run containers in an OCI-compatible fashion.**
 
-It describes: 
+It describes:
 
 - the container’s configuration (includes container’s root filesystem, command to run, environment variables, the user and group to use, resource limits, ...)
 -  operations that a container runtime must support (create, start, kill, delete, and state)
@@ -37,7 +37,7 @@ It describes:
 
 
 
-The OCI project also hosts **runc**, a low-level container runtime that implements the OCI runtime specification. 
+The OCI project also hosts **runc**, a low-level container runtime that implements the OCI runtime specification.
 
 
 
