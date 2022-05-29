@@ -1,14 +1,16 @@
 ---
-sort: 7
+sort: 8
 ---
 
-# ConfigMap
+# ConfigMap and Secrets
+
+## ConfigMap
 
 object used to store non-confidential data in key-value pairs
 
 
 
-## Creation
+### Creation
 
 with kubectl:
 
@@ -46,7 +48,7 @@ Kubectl usage:
 
 
 
-## Usage
+### Usage
 
 - Filesystem
 
@@ -93,15 +95,15 @@ spec:
 ```
 
 
-# Secrets
+## Secrets
 
 object that contains a small amount of sensitive data
 
-## Warning
+### Warning
 
 By default, Kubernetes secrets are stored in plain text in the etcd storage for the cluster: any cluster admin can access to them. In recent versions of Kubernetes there is the support for encrypting the secrets with a user-supplied key. Anyway most cloud providers propose a key store: secret can rely on exclusively on the cloud provider service.
 
-## Creation
+### Creation
 
 Create from file:
 
@@ -129,13 +131,13 @@ kubectl create secret generic db-user-pass \
 
 
 
-## Read secret
+### Read secret
 
 ```bash
 kubectl get secret db-user-pass -o jsonpath='{.data}' | base64 --decode
 ```
 
-## Usage
+### Usage
 
 - Filesystem
 
@@ -144,7 +146,7 @@ kubectl get secret db-user-pass -o jsonpath='{.data}' | base64 --decode
 - Environment variable
 
 - By the kubelet when pulling images for the Pod
-  The `imagePullSecrets` field is a list of references to secrets in the same namespace. You can use an `imagePullSecrets` to pass a secret that contains a Docker (or other) image registry password to the kubelet. 
+  The `imagePullSecrets` field is a list of references to secrets in the same namespace. You can use an `imagePullSecrets` to pass a secret that contains a Docker (or other) image registry password to the kubelet.
 
 Example:
 
