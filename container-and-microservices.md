@@ -13,7 +13,7 @@ sort: 2
 
 Containers can be used as building blocks for cloud architectural patterns.
 
-### Techonologies:
+### Techonologies
 
 #### Docker
 
@@ -35,12 +35,32 @@ Containers can be used as building blocks for cloud architectural patterns.
 
 **Link:** [cri-o.io](https://cri-o.io/##what-is-cri-o)
 {: style="text-align: right" }
+
+#### runc
+
+- **runc**: is a CLI tool for spawning and running containers on Linux according to the OCI specification.
+
+It's used by to Docker, containerd, and CRI-O to spawn containers according to the OCI spec.
+
+**Link:** [https://github.com/opencontainers/runc](https://github.com/opencontainers/runc)
+{: style="text-align: right" }
+
 #### Dyno
 
-- **Dynos**: [form heroku.com](https://www.heroku.com/dynos) isolated, virtualized Linux containers that are designed to execute code based on a user-specified command.
+- **Dynos**: [from heroku.com](https://www.heroku.com/dynos) isolated, virtualized Linux containers that are designed to execute code based on a user-specified command.
 
 **Link:** [heroku.com](https://www.heroku.com)
 {: style="text-align: right" }
+
+
+
+#### Kata Containers
+
+[from katacontainers.io](https://katacontainers.io/) : Kata Containers is an open source community working to build a secure container runtime with lightweight virtual machines that feel and perform like containers, but provide stronger workload isolation using hardware virtualization technology as a second layer of defense.
+
+**Link:** [https://katacontainers.io/](https://katacontainers.io/)
+
+
 
 ### Containerization
 
