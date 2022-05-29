@@ -4,7 +4,8 @@ sort: 1
 # Kubernetes
 
 ## Kubernetes definition
-Kubernetes is build on the concept of transient, decoupled objects connected together.
+Kubernetes is container orchestrator build on the concept of transient, decoupled objects connected together.
+
 
 ## Kubernetes resources
 
