@@ -36,8 +36,18 @@ The alternative definition: the ability to avoid service failures that are more 
 - **Maintainability:**
   - A measure of how easy it is for a system to undergo modifications after its delivery in order to correct faults, prevent problems from causing system failure, improve performance, or adapt to a changed environment.
 
+### More on Availability and Reliability
+
+|                    | **Availability**                                             | **Reliability**                                              |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **definition**     | ability to be operated if needed                             | ability to perform its intended function for a specific interval **without failure** |
+| **how to measure** | Availability (%) = Actual operation time / Scheduled operation time x 100% | Because reliability is expressed as the duration of operation without failure, reliability can be measured using the mean time between failure (MTBF) metric ( = Operating time (hours) / Number of failures) |
+| **example**        | a system can be very available but, if it stops every 30 seconds, it's not reliable | even if a system has not a great availability, because for example it needs time after a failure, it can be reliable if failures are really rare |
+
+
 
 ### Hight Availability
+
   - **Definition:** The system will continue to function despite the complete failure of any component of the architecture.
 
 
