@@ -50,11 +50,12 @@ The communication overhead of a team of size N is O(N2) => if team gets too larg
 ### Conway’s law
 *Organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations.*
 
-### Apply Conway’s law
+### Conway’s law in reverse
 It’s important, therefore, to apply Conway’s law in reverse:
 
-(From: https://www.thoughtworks.com/radar/techniques/inverse-conway-maneuver)
-*Conway's Law asserts that organizations are constrained to produce application designs which are copies of their communication structures. This often leads to unintended friction points. The 'Inverse Conway Maneuver' recommends evolving your team and organizational structure to promote your desired architecture. Ideally your technology architecture will display isomorphism with your business architecture.*
+From: https://www.thoughtworks.com/radar/techniques/inverse-conway-maneuver
+
+Conway's Law asserts that organizations are constrained to produce application designs which are copies of their communication structures. This often leads to unintended friction points. The 'Inverse Conway Maneuver' recommends evolving your team and organizational structure to promote your desired architecture. Ideally your technology architecture will display isomorphism with your business architecture.
 
 
 Besides, by doing so, you ensure that your development teams are as loosely coupled as the services.
