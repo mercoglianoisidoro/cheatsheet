@@ -129,7 +129,7 @@ More on the available access policies: https://docs.aws.amazon.com/eks/latest/us
 
 
 
-![[Diagram 2.svg]]
+![diagram](./images/Diagram2.svg)
 
 
 
@@ -145,4 +145,4 @@ More on the available access policies: https://docs.aws.amazon.com/eks/latest/us
 
 ## IAM roles for service accounts
 
-![[Diagram 1.svg]]
+![diagram](./images/Diagram1.svg)
