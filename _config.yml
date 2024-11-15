@@ -1,8 +1,10 @@
 # theme: jekyll-theme-architect
 # theme: jekyll-theme-minimal
 
-remote_theme: rundocs/jekyll-rtd-theme
-# fluid: true
+# remote_theme: rundocs/jekyll-rtd-theme
+
+theme: jekyll-theme-architect
+
 
 title: Isidoro 's Cheatsheet
 # description: Cloud Architect Cheatsheet by Isidoro Mercogliano.
