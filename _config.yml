@@ -3,7 +3,7 @@
 
 # remote_theme: rundocs/jekyll-rtd-theme
 
-theme: jekyll-theme-architect
+theme: jekyll-theme-minimal
 
 
 title: Isidoro 's Cheatsheet
