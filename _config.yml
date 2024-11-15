@@ -1,7 +1,7 @@
 # theme: jekyll-theme-architect
 # theme: jekyll-theme-minimal
-
-remote_theme: rundocs/jekyll-rtd-theme
+theme: minimal-mistakes-jekyll
+# remote_theme: rundocs/jekyll-rtd-theme
 # fluid: true
 
 title: Isidoro 's Cheatsheet
