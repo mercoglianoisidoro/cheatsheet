@@ -1,7 +1,7 @@
 # theme: jekyll-theme-architect
 # theme: jekyll-theme-minimal
-theme: minimal-mistakes-jekyll
-# remote_theme: rundocs/jekyll-rtd-theme
+
+remote_theme: rundocs/jekyll-rtd-theme
 # fluid: true
 
 title: Isidoro 's Cheatsheet
@@ -15,15 +15,15 @@ show_downloads: true
 readme_index:
   with_frontmatter: true
 
-# plugins:
-#   - jekyll-relative-links
-#   - jekyll-default-layout
-#   - jekyll-readme-index
-#   - jekyll-github-metadata
-#   - jekyll-titles-from-headings
-#   - jemoji
-#   - jekyll-avatar
-#   - jekyll-mentions
+plugins:
+  - jekyll-relative-links
+  - jekyll-default-layout
+  - jekyll-readme-index
+  - jekyll-github-metadata
+  - jekyll-titles-from-headings
+  - jemoji
+  - jekyll-avatar
+  - jekyll-mentions
 addons: true
 addons:
   - github:
