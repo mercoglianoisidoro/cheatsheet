@@ -2,13 +2,12 @@
 sort: 1
 ---
 
-# Single-node design pattern
+# Single-node Design Pattern
 
-Single-node patters describe solutions using collection of container hosted by the same machine or by a container group, like a kubernetes Pod.
+Single-node patterns describe solutions using collections of containers hosted by the same machine or by a container group, like a Kubernetes Pod.
 
-The containers :
-- are coupled on some degree
+The containers:
+- are coupled to some degree
 - share local resources
 - can communicate directly
-- often are the pieces of more complexe distribute systems
-
+- often are the pieces of more complex distributed systems
