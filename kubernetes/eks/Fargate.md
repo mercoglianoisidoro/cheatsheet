@@ -11,7 +11,7 @@ Here, just some notes.
 
 *Schedule:* Fargate Profile   --> *Data Plane* = Fargate VM
 
-*Schedule:* Normale Profile --> *Data Plane* = EC2
+*Schedule:* Normal Profile --> *Data Plane* = EC2
 
 The scheduler can use both and chose the right profile using affinity or taints.
 
@@ -23,7 +23,7 @@ The scheduler can use both and chose the right profile using affinity or taints.
 - NO NLB or CLB
 - It can't run privileged containers
 - slower startup
-- no dataset of statefulset
+- no daemonset or statefulset
 
 
 

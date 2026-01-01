@@ -8,12 +8,12 @@ sort: 1
 
 EKS supports two **type of identities**:
 - AWS **IAM Principal** (role or user - it can come from IAM or a Federated Identity):
-	- this type let to assign permissions to work with
+	- this type lets you assign permissions to work with
 		- K8S API or
 		- EKS API
-	- This leverage on the IAM Authenticator for K8S is installed on the Control Plane
+	- This leverages the IAM Authenticator for K8S installed on the Control Plane
 - **user from OIDC**
-	- - this type let to assign permissions to work with
+	- this type lets you assign permissions to work with
 		- K8S API
 
 Both types can be used as the same time
@@ -23,7 +23,7 @@ Both types can be used as the same time
 
 ## AWS IAM Principal: associate k8s permissions
 
-Two associate K8S permissions to IAM Identities, 2 ways:
+To associate K8S permissions to IAM Identities, 2 ways:
 - **ConfigMap AWS-auth** (deprecated)
 - **Access Entries** (the current recommended way)
 

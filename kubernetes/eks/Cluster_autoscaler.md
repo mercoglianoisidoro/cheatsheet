@@ -3,7 +3,7 @@ sort: 2
 ---
 # Cluster Autoscaler
 
-a rapid how-to schema to install and configureautoscaler on AWS / EKS
+a rapid how-to schema to install and configure autoscaler on AWS / EKS
 ## AWS configuration schema
 
 ![Cluster Autoscaler](./images/clusterautoscaler.jpg)
@@ -12,7 +12,7 @@ a rapid how-to schema to install and configureautoscaler on AWS / EKS
 
 **Prerequisites**
 
-- IAM OIDC provider for t cluster
+- IAM OIDC provider for the cluster
 
 - Node groups with Auto Scaling groups tags
 
