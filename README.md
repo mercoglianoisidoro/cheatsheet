@@ -1,11 +1,11 @@
 
 Welcome.
 
-Here my notes about
-Cloud Architecture and some other cool tools/concepts.
+Here are just some notes about
+Cloud Architecture and affinity concepts.
 
 
-Working in progress.
+Work always in progress.
 
 
 [home link](https://mercoglianoisidoro.github.io/cheatsheet/)
